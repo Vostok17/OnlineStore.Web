@@ -1,16 +1,16 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import HomePage from './features/home-page';
-import ShoppingCartPage from './features/shopping-cart-page';
-import ProductPage from './features/product-page';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './common/components/header';
+import HomePage from './features/home-page';
+import ProductPage from './features/product-page';
+import ShoppingCartPage from './features/shopping-cart-page';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <>
-      <Header />
       <Router>
+        <Header />
         <Switch>
           <Route path="/product_details">
             <ProductPage />

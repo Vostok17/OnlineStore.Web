@@ -1,15 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './menu.css';
 
 const Menu = ({ isOpen }) => {
   return (
-    <div
-      className="menu"
-      style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}
-    >
-      <a href="/">Home</a>
-      <a href="/product_details">Product details</a>
-      <a href="/cart">Cart</a>
+    <div className="menu" style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}>
+      <Link to="/">Home</Link>
+      <Link to="/product_details">Product details</Link>
+      <Link to="/cart">Cart</Link>
     </div>
   );
 };
