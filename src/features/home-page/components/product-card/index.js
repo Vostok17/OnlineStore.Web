@@ -1,10 +1,9 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { useHistory } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 import './product-card.css';
 
-function ProductCard({ title, imgSrc, price, onClickHandler }) {
+const ProductCard = ({ title, imgSrc, price, onSeeMoreClick }) => {
   return (
     <Card className="product-card">
       <div className="product-card__image">
@@ -14,17 +13,13 @@ function ProductCard({ title, imgSrc, price, onClickHandler }) {
         <Card.Title className="product-card__title">{title}</Card.Title>
         <div className="product-card__info">
           <Card.Text className="product-card__price">{price}₴</Card.Text>
-          <Button
-            className="product-card__link"
-            variant="primary"
-            onClick={onClickHandler}
-          >
+          <Button className="product-card__link" variant="primary" onClick={onSeeMoreClick}>
             See more
           </Button>
         </div>
       </Card.Body>
     </Card>
   );
-}
+};
 
 export default ProductCard;

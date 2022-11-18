@@ -1,11 +1,10 @@
 import React from 'react';
-import ProductList from './components/product-list';
 import { useHistory } from 'react-router-dom';
-
-// Will be removed.
-import laptopImg from '../../common/assets/laptop.jpg';
 import acerImg from '../../common/assets/acer.jpg';
 import appleImg from '../../common/assets/apple.jpg';
+// Will be removed.
+import laptopImg from '../../common/assets/laptop.jpg';
+import ProductList from './components/product-list';
 
 const productCards = [
   {
@@ -57,12 +56,7 @@ const HomePage = () => {
     history.push('/product_details');
   };
 
-  return (
-    <ProductList
-      productCards={productCards}
-      onClickHandler={redirectToProductPage}
-    />
-  );
+  return <ProductList productCards={productCards} onClickHandler={redirectToProductPage} />;
 };
 
 export default HomePage;

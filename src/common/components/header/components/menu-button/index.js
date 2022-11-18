@@ -1,9 +1,9 @@
 import React from 'react';
 import './menu-button.css';
 
-const MenuButton = ({ isMenuOpen, setIsMenuOpen }) => {
+const MenuButton = ({ isMenuOpen, onMenuButtonClick }) => {
   return (
-    <div className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+    <div className="menu-button" onClick={onMenuButtonClick}>
       <div
         style={{
           transform: `${isMenuOpen ? 'rotate(45deg)' : 'rotate(0)'}`,

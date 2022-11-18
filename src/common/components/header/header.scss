@@ -1,14 +1,9 @@
-$header-background: #e2c896;
-$search-bar-background: #fff;
-$button-background: #58629b;
-$search-bar-text-color: #242424;
-
 .header {
   display: flex;
   align-items: center;
   padding: 1rem;
   margin-bottom: 2rem;
-  background-color: $header-background;
+  background-color: #e2c896;
 
   &__title-bar {
     display: flex;
@@ -52,14 +47,14 @@ $search-bar-text-color: #242424;
   align-items: center;
   padding: 10px 20px;
   border-radius: 60px;
-  background: $search-bar-background;
+  background: #fff;
 
   &__input {
     flex: 1;
     padding: 24px 20px;
     border: 0;
     background: transparent;
-    color: $search-bar-text-color;
+    color: #242424;
     font-size: 1rem;
     outline: none;
   }
@@ -72,7 +67,7 @@ $search-bar-text-color: #242424;
     justify-content: center;
     border: 0;
     border-radius: 50%;
-    background: $button-background;
+    background: #58629b;
     cursor: pointer;
   }
 
