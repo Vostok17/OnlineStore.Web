@@ -5,15 +5,15 @@ import './characteristics.css';
 const Characteristics = ({ values }) => {
   return (
     <div>
-      {values.map(v => {
+      {values.map((v, index) => {
         const propertyNames = Object.getOwnPropertyNames(v.properties);
 
         return (
-          <div className="characteristic">
+          <div key={index} className="characteristic">
             <h5>{v.kind}</h5>
             <div>
-              {propertyNames.map(propName => (
-                <div className="property">
+              {propertyNames.map((propName, index) => (
+                <div key={index} className="property">
                   <div>{propName}</div>
                   <div>{v.properties[propName]}</div>
                 </div>

@@ -39,6 +39,39 @@ const test = {
   ],
 };
 
+const productsInCartTest = [
+  {
+    imgSrc: imgSrc,
+    title: 'Apple MacBook Air 13" M1 256GB',
+    price: 31999,
+  },
+  {
+    imgSrc: imgSrc,
+    title: 'Apple MacBook Air 13" M1 256GB',
+    price: 31999,
+  },
+  {
+    imgSrc: imgSrc,
+    title: 'Apple MacBook Air 13" M1 256GB',
+    price: 31999,
+  },
+  {
+    imgSrc: imgSrc,
+    title: 'Apple MacBook Air 13" M1 256GB',
+    price: 31999,
+  },
+  {
+    imgSrc: imgSrc,
+    title: 'Apple MacBook Air 13" M1 256GB',
+    price: 31999,
+  },
+  {
+    imgSrc: imgSrc,
+    title: 'Apple MacBook Air 13" M1 256GB',
+    price: 31999,
+  },
+];
+
 function App() {
   return (
     <>
@@ -54,7 +87,7 @@ function App() {
             />
           </Route>
           <Route path="/cart">
-            <ShoppingCartPage />
+            <ShoppingCartPage products={productsInCartTest} />
           </Route>
           <Route path="/">
             <HomePage />
