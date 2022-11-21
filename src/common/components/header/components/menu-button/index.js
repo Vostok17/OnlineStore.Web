@@ -3,7 +3,7 @@ import './menu-button.css';
 
 const MenuButton = ({ isMenuOpen, onMenuButtonClick }) => {
   return (
-    <div className="menu-button" onClick={() => onMenuButtonClick()}>
+    <div className="menu-button" onClick={onMenuButtonClick}>
       <div
         style={{
           transform: `${isMenuOpen ? 'rotate(45deg)' : 'rotate(0)'}`,

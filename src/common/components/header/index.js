@@ -20,7 +20,6 @@ const Header = () => {
         <Row className="header">
           <Col md={3} className="header__title-bar">
             <MenuButton isMenuOpen={isMenuOpen} onMenuButtonClick={handleMenuButtonClick} />
-            {console.log(isMenuOpen)}
             <h2 className="header__title">OnlineStore</h2>
           </Col>
           <Col md={6} className="header__search-bar">
