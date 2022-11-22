@@ -1,0 +1,25 @@
+.menu-button {
+  z-index: 2;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  flex-direction: column;
+  justify-content: space-around;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button:focus {
+  outline: none;
+}
+
+.menu-button div {
+  position: relative;
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  background-color: rgb(36 36 36);
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}
