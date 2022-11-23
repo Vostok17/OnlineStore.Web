@@ -3,29 +3,22 @@ import { Button, Container } from 'react-bootstrap';
 import ProductInCart from './components/product-in-cart';
 import './shopping-cart.css';
 
-const calculateTotalPrice = products => {
-  let price = 0;
-  products.forEach(p => {
-    price += p.price;
-  });
-  return price;
-};
+const calculateTotalPrice = products =>
+  products.map(p => p.price).reduce((totalPrice, currentPrice) => totalPrice + currentPrice);
 
 const ShoppingCartPage = ({ products }) => {
   const [totalPrice, setTotalPrice] = useState(() => calculateTotalPrice(products));
 
-  const onCountChange = value => setTotalPrice(prev => prev + value);
+  const handleTotalPriceChange = value => setTotalPrice(prev => prev + value);
 
   return (
     <Container className="shopping-cart">
       <div className="shopping-cart__products">
-        {products.map((product, index) => {
-          return (
-            <div className="shopping-cart__product" key={index}>
-              <ProductInCart product={product} onCountChange={onCountChange} />
-            </div>
-          );
-        })}
+        {products.map((product, index) => (
+          <div key={index}>
+            <ProductInCart product={product} onCountChange={handleTotalPriceChange} />
+          </div>
+        ))}
       </div>
       <div className="shopping-cart__footer">
         <span className="shopping-cart__total-price">TOTAL: {totalPrice}₴</span>

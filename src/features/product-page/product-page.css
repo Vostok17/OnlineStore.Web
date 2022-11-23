@@ -25,7 +25,12 @@
 }
 
 .product-page__title-and-characteristics {
-  margin-left: 3rem;
+  padding-left: 5rem;
+}
+
+.product-page__title-and-characteristics div {
+  display: flex;
+  justify-content: space-between;
 }
 
 .product-page__product-title {

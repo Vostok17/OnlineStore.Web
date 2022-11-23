@@ -25,6 +25,11 @@
 
   &__title-and-characteristics {
     padding-left: 5rem;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__product-title {

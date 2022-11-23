@@ -21,7 +21,7 @@ const ProductInCart = ({ product, onCountChange }) => {
 
   return (
     <div className="product-in-cart">
-      <img src={product.imgSrc} alt="product-image" className="product-in-cart__image" />
+      <img src={product.imgSrc} alt="laptop" className="product-in-cart__image" />
       <h4 className="product-in-cart__title">{product.title}</h4>
       <div className="product-in-cart__count-wrapper">
         <Button variant="success" onClick={increment} className="product-in-cart__button">
