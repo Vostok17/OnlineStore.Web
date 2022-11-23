@@ -1,10 +1,13 @@
 {
-  "extends": ["react-app", "react-app/jest", "prettier"],
-  "plugins": ["prettier", "simple-import-sort", "unused-imports"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "react-app", "react-app/jest", "prettier"],
+  "plugins": ["react", "simple-import-sort", "unused-imports", "prettier"],
   "rules": {
-    "unused-imports/no-unused-imports": "error",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "arrow-body-style": "warn",
+    "unused-imports/no-unused-imports": "warn",
     "simple-import-sort/imports": [
-      "error",
+      "warn",
       {
         "groups": [
           [
@@ -22,5 +25,10 @@
         ]
       }
     ]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }
