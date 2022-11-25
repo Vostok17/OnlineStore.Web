@@ -71,36 +71,5 @@ export default {
       bluetooth: '5.0',
     },
   },
-  shoppingCart: [
-    {
-      imgSrc: appleImg,
-      title: 'Apple MacBook Air 13" M1 256GB',
-      price: 31999,
-    },
-    {
-      imgSrc: appleImg,
-      title: 'Apple MacBook Air 13" M1 256GB',
-      price: 31999,
-    },
-    {
-      imgSrc: appleImg,
-      title: 'Apple MacBook Air 13" M1 256GB',
-      price: 31999,
-    },
-    {
-      imgSrc: appleImg,
-      title: 'Apple MacBook Air 13" M1 256GB',
-      price: 31999,
-    },
-    {
-      imgSrc: appleImg,
-      title: 'Apple MacBook Air 13" M1 256GB',
-      price: 31999,
-    },
-    {
-      imgSrc: appleImg,
-      title: 'Apple MacBook Air 13" M1 256GB',
-      price: 31999,
-    },
-  ],
+  shoppingCart: [],
 };

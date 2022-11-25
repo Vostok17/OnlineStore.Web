@@ -10,7 +10,7 @@ const HomePage = ({ productCards }) => {
     history.push('/product_details');
   };
 
-  return <ProductList productCards={productCards} onClickHandler={redirectToProductPage} />;
+  return <ProductList productCards={productCards} onSeeMoreClick={redirectToProductPage} />;
 };
 
 export default connect(state => ({ productCards: state.productCards }))(HomePage);
