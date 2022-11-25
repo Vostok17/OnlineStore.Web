@@ -1,8 +1,8 @@
 import React from 'react';
 import { ErrorMessage, useField } from 'formik';
-import './text-field.css';
+import './text-input.css';
 
-const TestField = ({ label, ...props }) => {
+const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
@@ -21,4 +21,4 @@ const TestField = ({ label, ...props }) => {
   );
 };
 
-export default TestField;
+export default TextInput;

@@ -4,15 +4,15 @@ import SignInForm from './components/sign-in-form';
 import SignUpForm from './components/sign-up-form';
 
 const LogInModal = ({ show, onHide, onSubmit }) => {
-  const [hasAccount, setHasAccount] = useState(true);
+  const [isRegisteredUser, setIsRegisteredUser] = useState(true);
 
-  const handleUnregistered = () => setHasAccount(false);
+  const handleUserRegistration = () => setIsRegisteredUser(false);
 
   return (
     <Modal show={show} onHide={onHide} backdrop="static">
       <Modal.Body>
-        {hasAccount ? (
-          <SignInForm onUnregistered={handleUnregistered} onSubmit={onSubmit} />
+        {isRegisteredUser ? (
+          <SignInForm onUserRegistration={handleUserRegistration} onSubmit={onSubmit} />
         ) : (
           <SignUpForm onSubmit={onSubmit} />
         )}
