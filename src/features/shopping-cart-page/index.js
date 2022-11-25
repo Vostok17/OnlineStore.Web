@@ -4,7 +4,7 @@ import ProductInCart from './components/product-in-cart';
 import './shopping-cart.css';
 
 const calculateTotalPrice = products =>
-  products.map(p => p.price).reduce((totalPrice, currentPrice) => totalPrice + currentPrice);
+  products.reduce((totalPrice, currentProduct) => totalPrice + currentProduct.price, 0);
 
 const ShoppingCartPage = ({ products }) => {
   const [totalPrice, setTotalPrice] = useState(() => calculateTotalPrice(products));
