@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import ProductInCart from './components/product-in-cart';
 import './shopping-cart.css';
 
@@ -30,4 +31,4 @@ const ShoppingCartPage = ({ products }) => {
   );
 };
 
-export default ShoppingCartPage;
+export default connect(state => ({ products: state.shoppingCart }))(ShoppingCartPage);

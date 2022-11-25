@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaCartPlus } from 'react-icons/fa';
+import { connect } from 'react-redux';
 import './product-page.css';
 
 const ProductPage = ({ product }) => (
@@ -65,4 +66,4 @@ const ProductPage = ({ product }) => (
   </Container>
 );
 
-export default ProductPage;
+export default connect(state => ({ product: state.productDetails }))(ProductPage);
