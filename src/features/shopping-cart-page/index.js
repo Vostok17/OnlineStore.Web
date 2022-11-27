@@ -4,12 +4,8 @@ import { connect } from 'react-redux';
 import ProductInCart from './components/product-in-cart';
 import './shopping-cart.css';
 
-const calculateTotalPrice = products => {
-  if (products.length === 0) {
-    return 0;
-  }
-  return products.reduce((totalPrice, currentProduct) => totalPrice + currentProduct.price, 0);
-};
+const calculateTotalPrice = products =>
+  products.reduce((totalPrice, currentProduct) => totalPrice + currentProduct.price, 0);
 
 const ShoppingCartPage = ({ products }) => {
   const [totalPrice, setTotalPrice] = useState(() => calculateTotalPrice(products));
