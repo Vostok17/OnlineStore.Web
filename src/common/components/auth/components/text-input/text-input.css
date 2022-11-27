@@ -1,0 +1,9 @@
+.text-field__label {
+  font-size: 1rem;
+}
+
+.text-field__error-message {
+  position: absolute;
+  color: red;
+  font-size: 0.7rem;
+}
