@@ -31,4 +31,4 @@ const ShoppingCartPage = ({ products }) => {
   );
 };
 
-export default connect(state => ({ products: state.shoppingCart }))(ShoppingCartPage);
+export default connect(state => ({ products: state.cart.data.products }))(ShoppingCartPage);

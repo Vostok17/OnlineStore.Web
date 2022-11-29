@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import shoppingCartReducer from '../features//shopping-cart-page/reducer';
-import productCardsReducer from '../features/home-page/reducer';
-import productDetailsReducer from '../features/product-page/reducer';
+import homeReducer from '../features/home-page/reducer';
+import productReducer from '../features/product-page/reducer';
+import cartReducer from '../features/shopping-cart-page/reducer';
 
 const rootReducer = combineReducers({
-  productCards: productCardsReducer,
-  productDetails: productDetailsReducer,
-  shoppingCart: shoppingCartReducer,
+  home: homeReducer,
+  product: productReducer,
+  cart: cartReducer,
 });
 
 export default rootReducer;

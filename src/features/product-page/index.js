@@ -78,4 +78,4 @@ const ProductPage = ({ product, ...props }) => {
   );
 };
 
-export default connect(state => ({ product: state.productDetails }), { addToShoppingCart })(ProductPage);
+export default connect(state => ({ product: state.product.data.details }), { addToShoppingCart })(ProductPage);

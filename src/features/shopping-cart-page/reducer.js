@@ -1,6 +1,7 @@
+import initialState from '../../store/initialState';
 import actionTypes from './actionTypes';
 
-const shoppingCartReducer = (state = [], action) => {
+const shoppingCartReducer = (state = initialState.cart, action) => {
   switch (action.type) {
     case actionTypes.ADD_TO_SHOPPING_CART:
       return state.concat(action.payload);
