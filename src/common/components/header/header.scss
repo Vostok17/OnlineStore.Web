@@ -27,11 +27,27 @@
     justify-content: flex-end;
   }
 
-  &__icon {
-    width: 3rem;
-    height: 3rem;
-    margin: 7px;
+  &__icon-wrapper {
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    padding: 0.5rem;
+    margin-left: 8px;
+    background: transparent;
     cursor: pointer;
+    transition: transform 0.1s linear;
+
+    &:hover {
+      border-radius: 9px;
+      background: rgb(158 158 158);
+      scale: 0.8;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    color: #222;
   }
 
   &__menu-button {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import SearchImg from '../../assets/search.png';
 import LogInModal from '../auth';
 import { Menu, MenuButton } from './components';
@@ -34,8 +35,12 @@ const Header = () => {
             </form>
           </Col>
           <Col md={3} className="header__icons-bar">
-            <BsFillPersonFill className="header__icon" onClick={handleLogInShow} />
-            <FaShoppingCart className="header__icon" />
+            <div className="header__icon-wrapper">
+              <BsFillPersonFill className="header__icon" onClick={handleLogInShow} />
+            </div>
+            <Link to="/cart" className="header__icon-wrapper">
+              <FaShoppingCart className="header__icon" />
+            </Link>
           </Col>
         </Row>
       </Container>
