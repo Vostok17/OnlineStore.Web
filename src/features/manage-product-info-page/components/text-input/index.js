@@ -6,7 +6,7 @@ const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <div className="text-input mb-4">
+    <div className="text-input mb-2">
       <label htmlFor={field.name} className="text-input__label">
         {label}
       </label>

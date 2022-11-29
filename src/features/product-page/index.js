@@ -8,6 +8,7 @@ import './product-page.css';
 const ProductPage = ({ product, ...props }) => {
   const handleAddToCartClick = () => {
     props.addToShoppingCart({
+      id: product.id,
       title: product.title,
       imgSrc: product.imgSrc,
       price: product.price,

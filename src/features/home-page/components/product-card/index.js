@@ -1,20 +1,20 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import './product-card.css';
 
-const ProductCard = ({ title, imgSrc, price, onSeeMoreClick }) => (
+const ProductCard = ({ product }) => (
   <Card className="product-card">
     <div className="product-card__image">
-      <Card.Img src={imgSrc} />
+      <Card.Img src={product.imgSrc} />
     </div>
     <Card.Body>
-      <Card.Title className="product-card__title">{title}</Card.Title>
+      <Card.Title className="product-card__title">{product.title}</Card.Title>
       <div className="product-card__info">
-        <Card.Text className="product-card__price">{price}₴</Card.Text>
-        <Button className="product-card__link" variant="primary" onClick={onSeeMoreClick}>
+        <Card.Text className="product-card__price">{product.price}₴</Card.Text>
+        <Link className="product-card__link" to={`/product_details/${product.id}`}>
           See more
-        </Button>
+        </Link>
       </div>
     </Card.Body>
   </Card>

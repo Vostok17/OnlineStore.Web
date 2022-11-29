@@ -4,6 +4,8 @@ const shoppingCartReducer = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ADD_TO_SHOPPING_CART:
       return state.concat(action.payload);
+    case actionTypes.REMOVE_FROM_SHOPPING_CART:
+      return state.filter(p => p.id !== action.payload);
     default:
       return state;
   }
