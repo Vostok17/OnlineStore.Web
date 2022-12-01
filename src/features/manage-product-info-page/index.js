@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
 import TextInput from './components/text-input';
 import './manage-product-info-page.css';
 
 const imagePlaceholder = 'https://via.placeholder.com/400x200.png';
 
-const ManageProductInfoPage = ({ product }) => {
+const ManageProductInfoPage = () => {
+  const product = useSelector(state => state.product.data);
   const [image, setImage] = useState(product.imgSrc);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -65,4 +66,4 @@ const ManageProductInfoPage = ({ product }) => {
   );
 };
 
-export default connect(state => ({ product: state.productDetails }))(ManageProductInfoPage);
+export default ManageProductInfoPage;
