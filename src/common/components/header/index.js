@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -8,22 +8,43 @@ import LogInModal from '../auth';
 import { Menu, MenuButton } from './components';
 import './header.css';
 
+const useClickOutside = (ref, handler) => {
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        handler();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [handler, ref]);
+};
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showLogInModal, setShowLogInModal] = useState(false);
 
   const handleMenuButtonClick = () => setIsMenuOpen(!isMenuOpen);
+  const handleMenuClose = () => setIsMenuOpen(false);
 
   const handleLogInShow = () => setShowLogInModal(true);
   const handleLogInClose = () => setShowLogInModal(false);
 
+  const menuRef = useRef();
+  useClickOutside(menuRef, handleMenuClose);
+
   return (
     <>
-      <Menu isOpen={isMenuOpen} />
       <Container fluid>
         <Row className="header">
           <Col md={3} className="header__title-bar">
-            <MenuButton isMenuOpen={isMenuOpen} onMenuButtonClick={handleMenuButtonClick} />
+            <div ref={menuRef}>
+              <MenuButton isMenuOpen={isMenuOpen} onMenuButtonClick={handleMenuButtonClick} />
+              <Menu isOpen={isMenuOpen} />
+            </div>
             <h2 className="header__title">OnlineStore</h2>
           </Col>
           <Col md={6} className="header__search-bar">
