@@ -27,6 +27,7 @@ const ProductInCart = ({ product, onCountChange }) => {
   const handleRemoveModalClose = () => setShowRemoveModal(false);
   const handleRemove = () => {
     dispatch(removeFromShoppingCart(product.id));
+    onCountChange(-product.price);
     handleRemoveModalClose();
   };
 
