@@ -16,7 +16,7 @@ function App() {
           <Route path="/manage_product_details">
             <ManageProductInfoPage />
           </Route>
-          <Route path="/product_details">
+          <Route path="/product_details/:id">
             <ProductPage />
           </Route>
           <Route path="/cart">

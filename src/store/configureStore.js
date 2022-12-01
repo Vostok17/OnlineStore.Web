@@ -1,7 +1,7 @@
 if (process.env.REACT_APP_API_TYPE === 'web') {
-  console.log('web');
+  console.log('Mode: web');
   module.exports = require('./configureStore.prod');
 } else {
-  console.log('dev');
+  console.log('Mode: dev');
   module.exports = require('./configureStore.dev');
 }
