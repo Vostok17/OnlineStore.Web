@@ -11,9 +11,7 @@ const calculateTotalPrice = products =>
   products.reduce((totalPrice, currentProduct) => totalPrice + currentProduct.price * currentProduct.quantity, 0);
 
 const ShoppingCartPage = () => {
-  const products = useSelector(state => state.cart.data.products);
-  const isLoading = useSelector(state => state.cart.isLoading);
-  const hasError = useSelector(state => state.cart.hasError);
+  const { data, isLoading, hasError } = useSelector(state => state.cart);
   const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
 
@@ -43,7 +41,7 @@ const ShoppingCartPage = () => {
       ) : (
         <Container className="shopping-cart">
           <div className="shopping-cart__products">
-            {products.map((product, index) => (
+            {data.map((product, index) => (
               <div key={index}>
                 <ProductInCart product={product} onCountChange={handleTotalPriceChange} />
               </div>

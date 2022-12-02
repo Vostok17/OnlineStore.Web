@@ -8,9 +8,7 @@ import ProductList from './components/product-list';
 import { loadProductCards, loadProductCardsFail, loadProductCardsSuccess } from './actions';
 
 const HomePage = () => {
-  const productCards = useSelector(state => state.home.data.productCards);
-  const isLoading = useSelector(state => state.home.isLoading);
-  const hasError = useSelector(state => state.home.hasError);
+  const { data, isLoading, hasError } = useSelector(state => state.home);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const HomePage = () => {
     return <Alert variant="danger">General server error!</Alert>;
   }
 
-  return <>{isLoading ? <LoadingAnimation /> : <ProductList productCards={productCards} />}</>;
+  return <>{isLoading ? <LoadingAnimation /> : <ProductList productCards={data} />}</>;
 };
 
 export default HomePage;

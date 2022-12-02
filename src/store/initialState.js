@@ -1,8 +1,6 @@
 export default {
   home: {
-    data: {
-      productCards: [],
-    },
+    data: [],
     isLoading: false,
     hasError: false,
   },
@@ -38,9 +36,7 @@ export default {
     hasError: false,
   },
   cart: {
-    data: {
-      products: [],
-    },
+    data: [],
     isLoading: false,
     hasError: false,
   },

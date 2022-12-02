@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import { ErrorMessage, useField } from 'formik';
 import './text-input.css';
 
@@ -11,7 +12,9 @@ const TextInput = ({ label, ...props }) => {
         {label}
       </label>
       <input
-        className={`form-control shadow-none ${meta.touched && meta.error && 'is-invalid'}`}
+        className={cx('form-control', 'shadow-none', {
+          'is-invalid': meta.touched && meta.error,
+        })}
         {...field}
         {...props}
         autoComplete="off"
