@@ -1,62 +1,33 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import acerImg from '../../common/assets/acer.jpg';
-import appleImg from '../../common/assets/apple.jpg';
-// Will be removed.
-import laptopImg from '../../common/assets/laptop.jpg';
+import { useEffect } from 'react';
+import { Alert } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import HomeApi from '../../api/homeApi';
+import LoadingAnimation from '../../common/components/loading-animation';
 import ProductList from './components/product-list';
-
-const productCards = [
-  {
-    title: 'ASUS Vivobook 15 X1502ZA-BQ641',
-    imgSrc: laptopImg,
-    price: '31 999',
-  },
-  {
-    title: 'Acer Aspire 5 A515-45G-R9ML',
-    imgSrc: acerImg,
-    price: '26 999',
-  },
-  {
-    title: 'Apple MacBook Air 13" M1 256GB',
-    imgSrc: appleImg,
-    price: '42 999',
-  },
-  {
-    title: 'ASUS Vivobook 15 X1502ZA-BQ641',
-    imgSrc: laptopImg,
-    price: '31 999',
-  },
-  {
-    title: 'Acer Aspire 5 A515-45G-R9ML',
-    imgSrc: acerImg,
-    price: '26 999',
-  },
-  {
-    title: 'Apple MacBook Air 13" M1 256GB',
-    imgSrc: appleImg,
-    price: '42 999',
-  },
-  {
-    title: 'ASUS Vivobook 15 X1502ZA-BQ641',
-    imgSrc: laptopImg,
-    price: '31 999',
-  },
-  {
-    title: 'Acer Aspire 5 A515-45G-R9ML',
-    imgSrc: acerImg,
-    price: '26 999',
-  },
-];
+import { loadProductCards, loadProductCardsFail, loadProductCardsSuccess } from './actions';
 
 const HomePage = () => {
-  const history = useHistory();
+  const { data, isLoading, hasError } = useSelector(state => state.home);
+  const dispatch = useDispatch();
 
-  const redirectToProductPage = () => {
-    history.push('/product_details');
-  };
+  useEffect(() => {
+    dispatch(loadProductCards());
+    (async () => {
+      try {
+        const res = await HomeApi.getProductCards();
+        dispatch(loadProductCardsSuccess(res.data));
+      } catch (error) {
+        dispatch(loadProductCardsFail());
+      }
+    })();
+  }, [dispatch]);
 
-  return <ProductList productCards={productCards} onClickHandler={redirectToProductPage} />;
+  if (hasError) {
+    return <Alert variant="danger">General server error!</Alert>;
+  }
+
+  return <>{isLoading ? <LoadingAnimation /> : <ProductList productCards={data} />}</>;
 };
 
 export default HomePage;

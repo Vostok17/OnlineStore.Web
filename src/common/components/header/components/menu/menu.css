@@ -8,7 +8,7 @@
   min-height: 100%;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 6rem;
+  padding: 6rem 2rem;
   background: azure;
   text-align: left;
   transform: translateX(-100%);
@@ -17,7 +17,6 @@
 
 .menu a {
   padding-top: 1rem;
-  padding-left: 2rem;
   font-size: 1.5rem;
   transition: color 0.3s linear;
 }

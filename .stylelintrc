@@ -6,7 +6,7 @@
     "stylelint-config-prettier-scss",
     "stylelint-config-idiomatic-order"
   ],
-  "plugins": ["stylelint-order"],
+  "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
     "selector-class-pattern": null
   }
