@@ -27,7 +27,7 @@ const ProductPage = () => {
   }, [dispatch, id]);
 
   const handleAddToCartClick = async () => {
-    const product = { id: data.id, title: data.title, imgSrc: data.imgSrc, price: data.price, quantity: 1 };
+    const product = { id: data.id, title: data.title, imageLink: data.imageLink, price: data.price, quantity: 1 };
     dispatch(addToShoppingCart(product));
   };
 
@@ -43,7 +43,7 @@ const ProductPage = () => {
         <Container className="product-page">
           <Row>
             <Col className="product-page__picture-and-price">
-              <img src={data.imgSrc} alt="imgSrc" className="product-page__image" />
+              <img src={data.imageLink} alt="imgSrc" className="product-page__image" />
               <div className="product-page__price-and-button-wrapper">
                 <span className="product-page__price">{data.price}₴</span>
                 <button className="add-to-cart-button" onClick={handleAddToCartClick}>

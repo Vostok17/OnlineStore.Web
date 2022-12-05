@@ -35,7 +35,7 @@ const ProductInCart = ({ product, onCountChange }) => {
     <>
       <Row className="product-in-cart">
         <Col md={2} className="product-in-cart__image-wrapper">
-          <img src={product.imgSrc} alt="laptop" />
+          <img src={product.imageLink} alt="laptop" />
         </Col>
         <Col md={5}>
           <h4 className="product-in-cart__title">{product.title}</h4>

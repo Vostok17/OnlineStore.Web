@@ -21,8 +21,9 @@ const ShoppingCartPage = () => {
       try {
         const res = await CartApi.getProducts();
         dispatch(loadCartSuccess(res.data));
-        setTotalPrice(calculateTotalPrice(res.data.products));
+        setTotalPrice(calculateTotalPrice(res.data));
       } catch (error) {
+        console.log(error);
         dispatch(loadCartFail());
       }
     })();

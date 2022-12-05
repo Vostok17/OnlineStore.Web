@@ -10,10 +10,10 @@ const shoppingCartReducer = (state = initialState.cart, action) => {
     case actionTypes.LOAD_CART_FAIL:
       return { ...state, isLoading: false, hasError: true };
     case actionTypes.ADD_TO_SHOPPING_CART:
-      state.data.products.push(action.product);
+      state.data.push(action.product);
       return state;
     case actionTypes.REMOVE_FROM_SHOPPING_CART:
-      return { ...state, data: { products: state.data.products.filter(p => p.id !== action.id) } };
+      return { ...state, data: state.data.filter(p => p.id !== action.id) };
     default:
       return state;
   }

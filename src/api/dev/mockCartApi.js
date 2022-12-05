@@ -1,8 +1,6 @@
 import delay from './delay';
 
-const readData = {
-  products: [],
-};
+const readData = [];
 
 class CartApi {
   static getProducts() {
