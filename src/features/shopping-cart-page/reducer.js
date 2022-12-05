@@ -1,7 +1,10 @@
+import UserSessionService from '../../common/services/userSessionService';
 import initialState from '../../store/initialState';
 import * as actionTypes from './actionTypes';
 
-const shoppingCartReducer = (state = initialState.cart, action) => {
+const initStateWithCart = { ...initialState.cart, data: UserSessionService.getShoppingCart() };
+
+const shoppingCartReducer = (state = initStateWithCart, action) => {
   switch (action.type) {
     case actionTypes.LOAD_CART:
       return { ...state, isLoading: true };
@@ -14,6 +17,9 @@ const shoppingCartReducer = (state = initialState.cart, action) => {
       return state;
     case actionTypes.REMOVE_FROM_SHOPPING_CART:
       return { ...state, data: state.data.filter(p => p.id !== action.id) };
+    case actionTypes.UPDATE_PRODUCT_QUANTITY:
+      state.data.find(p => p.id === action.data.id).quantity = action.data.quantity;
+      return state;
     default:
       return state;
   }
