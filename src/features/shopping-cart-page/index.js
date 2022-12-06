@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Alert, Button, Container } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoadingAnimation from '../../common/components/loading-animation';
 import ProductInCart from './components/product-in-cart';
+import { clearShoppingCart } from './actions';
 import './shopping-cart.css';
 
 const calculateTotalPrice = products =>
@@ -11,8 +12,11 @@ const calculateTotalPrice = products =>
 const ShoppingCartPage = () => {
   const { data, isLoading, hasError } = useSelector(state => state.cart);
   const [totalPrice, setTotalPrice] = useState(calculateTotalPrice(data));
+  const dispatch = useDispatch();
 
   const handleTotalPriceChange = value => setTotalPrice(prev => prev + value);
+
+  const handleCheckout = () => dispatch(clearShoppingCart());
 
   if (hasError) {
     return <Alert variant="danger">General server error!</Alert>;
@@ -33,7 +37,7 @@ const ShoppingCartPage = () => {
           </div>
           <div className="shopping-cart__footer">
             <span className="shopping-cart__total-price">TOTAL: {totalPrice}₴</span>
-            <Button variant="success" className="shopping-cart__checkout-button">
+            <Button variant="success" className="shopping-cart__checkout-button" onClick={handleCheckout}>
               Checkout
             </Button>
           </div>

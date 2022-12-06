@@ -21,9 +21,13 @@ const shoppingCartReducer = (state = initStateWithCart, action) => {
       return state;
     case actionTypes.REMOVE_FROM_SHOPPING_CART:
       return { ...state, data: state.data.filter(p => p.id !== action.id) };
+    case actionTypes.CLEAR_SHOPPING_CART:
+      return { ...state, data: [] };
+
     case actionTypes.UPDATE_PRODUCT_QUANTITY:
       state.data.find(p => p.id === action.data.id).quantity = action.data.quantity;
       return state;
+
     default:
       return state;
   }

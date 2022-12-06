@@ -14,3 +14,5 @@ export const updateProductQuantity = (id, quantity) => ({
   type: actionTypes.UPDATE_PRODUCT_QUANTITY,
   data: { id, quantity },
 });
+
+export const clearShoppingCart = () => ({ type: actionTypes.CLEAR_SHOPPING_CART });
