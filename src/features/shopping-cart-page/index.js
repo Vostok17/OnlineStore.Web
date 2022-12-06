@@ -10,7 +10,7 @@ const calculateTotalPrice = products =>
 
 const ShoppingCartPage = () => {
   const { data, isLoading, hasError } = useSelector(state => state.cart);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(calculateTotalPrice(data));
 
   const handleTotalPriceChange = value => setTotalPrice(prev => prev + value);
 

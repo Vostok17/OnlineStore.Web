@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Button, Col, Modal, Row } from 'react-bootstrap';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
-import { removeFromShoppingCart } from '../../actions';
+import { removeFromShoppingCart, updateProductQuantity } from '../../actions';
 import './product-in-cart.css';
 
 const ProductInCart = ({ product, onCountChange }) => {
   const [count, setCount] = useState(product.quantity);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateProductQuantity(product.id, count));
+  }, [count, dispatch, product.id]);
 
   const increment = () => {
     onCountChange(product.price);
