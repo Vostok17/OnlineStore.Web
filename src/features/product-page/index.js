@@ -57,44 +57,44 @@ const ProductPage = () => {
               <h5>Screen</h5>
               <div>
                 <span>Diagonal</span>
-                <span>{data.screen.diagonal}</span>
+                <span>{data.diagonal}</span>
               </div>
               <div>
                 <span>Refresh rate</span>
-                <span>{data.screen.refreshRate}</span>
+                <span>{data.refreshRate}</span>
               </div>
               <h5>Processor</h5>
               <div>
                 <span>CPU</span>
-                <span>{data.cpu.processor}</span>
+                <span>{data.processor}</span>
               </div>
               <div>
                 <span>Operating System</span>
-                <span>{data.cpu.operatingSystem}</span>
+                <span>{data.operatingSystem}</span>
               </div>
               <h5>RAM</h5>
               <div>
                 <span>Amount of RAM</span>
-                <span>{data.ram.amountOfRam}</span>
+                <span>{data.amountOfRam}</span>
               </div>
               <h5>Storage</h5>
               <div>
                 <span>SSD</span>
-                <span>{data.storage.ssd}</span>
+                <span>{data.ssd}</span>
               </div>
               <h5>GPU</h5>
               <div>
                 <span>Video card</span>
-                <span>{data.gpu.videoCard}</span>
+                <span>{data.videoCard}</span>
               </div>
               <h5>Network adapters</h5>
               <div>
                 <span>Wi-Fi</span>
-                <span>{data.networkAdapters.wifi}</span>
+                <span>{data.wifi}</span>
               </div>
               <div>
                 <span>Bluetooth</span>
-                <span>{data.networkAdapters.bluetooth}</span>
+                <span>{data.bluetooth}</span>
               </div>
             </Col>
           </Row>

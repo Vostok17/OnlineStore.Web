@@ -7,7 +7,7 @@ import { removeFromShoppingCart, updateProductQuantity } from '../../actions';
 import './product-in-cart.css';
 
 const ProductInCart = ({ product, onCountChange }) => {
-  const [count, setCount] = useState(product.quantity);
+  const [count, setCount] = useState(product.count);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const dispatch = useDispatch();
 

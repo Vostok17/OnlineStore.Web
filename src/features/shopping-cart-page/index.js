@@ -1,22 +1,39 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Alert, Button, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import CartApi from '../../api/prod/webCartApi';
 import LoadingAnimation from '../../common/components/loading-animation';
 import ProductInCart from './components/product-in-cart';
-import { clearShoppingCart } from './actions';
+import { clearShoppingCart, loadCart, loadCartFail, loadCartSuccess } from './actions';
 import './shopping-cart.css';
 
 const calculateTotalPrice = products =>
-  products.reduce((totalPrice, currentProduct) => totalPrice + currentProduct.price * currentProduct.quantity, 0);
+  products.reduce((totalPrice, currentProduct) => totalPrice + currentProduct.price * currentProduct.count, 0);
 
 const ShoppingCartPage = () => {
   const { data, isLoading, hasError } = useSelector(state => state.cart);
   const [totalPrice, setTotalPrice] = useState(calculateTotalPrice(data));
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    (async () => {
+      dispatch(loadCart());
+      try {
+        const res = await CartApi.getProducts();
+        dispatch(loadCartSuccess(res.data));
+      } catch {
+        dispatch(loadCartFail());
+      }
+    })();
+  }, [dispatch]);
+
   const handleTotalPriceChange = value => setTotalPrice(prev => prev + value);
 
-  const handleCheckout = () => dispatch(clearShoppingCart());
+  const handleCheckout = async () => {
+    await CartApi.checkout(data);
+    dispatch(clearShoppingCart());
+  };
 
   if (hasError) {
     return <Alert variant="danger">General server error!</Alert>;
