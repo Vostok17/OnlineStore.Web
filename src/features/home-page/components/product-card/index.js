@@ -6,7 +6,7 @@ import './product-card.css';
 const ProductCard = ({ product }) => (
   <Card className="product-card">
     <div className="product-card__image">
-      <Card.Img src={product.imgSrc} />
+      <Card.Img src={product.imageLink} />
     </div>
     <Card.Body>
       <Card.Title className="product-card__title">{product.title}</Card.Title>

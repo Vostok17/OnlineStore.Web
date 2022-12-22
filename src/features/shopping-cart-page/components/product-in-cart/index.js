@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Button, Col, Modal, Row } from 'react-bootstrap';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
-import { removeFromShoppingCart } from '../../actions';
+import { removeFromShoppingCart, updateProductQuantity } from '../../actions';
 import './product-in-cart.css';
 
 const ProductInCart = ({ product, onCountChange }) => {
-  const [count, setCount] = useState(product.quantity);
+  const [count, setCount] = useState(product.count);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateProductQuantity(product.id, count));
+  }, [count, dispatch, product.id]);
 
   const increment = () => {
     onCountChange(product.price);
@@ -35,7 +40,7 @@ const ProductInCart = ({ product, onCountChange }) => {
     <>
       <Row className="product-in-cart">
         <Col md={2} className="product-in-cart__image-wrapper">
-          <img src={product.imgSrc} alt="laptop" />
+          <img src={product.imageLink} alt="laptop" />
         </Col>
         <Col md={5}>
           <h4 className="product-in-cart__title">{product.title}</h4>

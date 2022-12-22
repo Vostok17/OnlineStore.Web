@@ -27,7 +27,7 @@ const ProductPage = () => {
   }, [dispatch, id]);
 
   const handleAddToCartClick = async () => {
-    const product = { id: data.id, title: data.title, imgSrc: data.imgSrc, price: data.price, quantity: 1 };
+    const product = { id: data.id, title: data.title, imageLink: data.imageLink, price: data.price, quantity: 1 };
     dispatch(addToShoppingCart(product));
   };
 
@@ -43,7 +43,7 @@ const ProductPage = () => {
         <Container className="product-page">
           <Row>
             <Col className="product-page__picture-and-price">
-              <img src={data.imgSrc} alt="imgSrc" className="product-page__image" />
+              <img src={data.imageLink} alt="imgSrc" className="product-page__image" />
               <div className="product-page__price-and-button-wrapper">
                 <span className="product-page__price">{data.price}₴</span>
                 <button className="add-to-cart-button" onClick={handleAddToCartClick}>
@@ -57,44 +57,44 @@ const ProductPage = () => {
               <h5>Screen</h5>
               <div>
                 <span>Diagonal</span>
-                <span>{data.screen.diagonal}</span>
+                <span>{data.diagonal}</span>
               </div>
               <div>
                 <span>Refresh rate</span>
-                <span>{data.screen.refreshRate}</span>
+                <span>{data.refreshRate}</span>
               </div>
               <h5>Processor</h5>
               <div>
                 <span>CPU</span>
-                <span>{data.cpu.processor}</span>
+                <span>{data.processor}</span>
               </div>
               <div>
                 <span>Operating System</span>
-                <span>{data.cpu.operatingSystem}</span>
+                <span>{data.operatingSystem}</span>
               </div>
               <h5>RAM</h5>
               <div>
                 <span>Amount of RAM</span>
-                <span>{data.ram.amountOfRam}</span>
+                <span>{data.amountOfRam}</span>
               </div>
               <h5>Storage</h5>
               <div>
                 <span>SSD</span>
-                <span>{data.storage.ssd}</span>
+                <span>{data.ssd}</span>
               </div>
               <h5>GPU</h5>
               <div>
                 <span>Video card</span>
-                <span>{data.gpu.videoCard}</span>
+                <span>{data.videoCard}</span>
               </div>
               <h5>Network adapters</h5>
               <div>
                 <span>Wi-Fi</span>
-                <span>{data.networkAdapters.wifi}</span>
+                <span>{data.wifi}</span>
               </div>
               <div>
                 <span>Bluetooth</span>
-                <span>{data.networkAdapters.bluetooth}</span>
+                <span>{data.bluetooth}</span>
               </div>
             </Col>
           </Row>
