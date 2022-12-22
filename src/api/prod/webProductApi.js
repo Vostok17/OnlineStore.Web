@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const serviceUrl = `${process.env.REACT_APP_API_URL}/api/productdetails`;
+const serviceUrl = `${process.env.REACT_APP_API_URL}/api/productDetails`;
 
 class ProductApi {
   static getProduct(id) {

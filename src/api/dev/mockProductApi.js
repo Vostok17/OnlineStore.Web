@@ -225,7 +225,7 @@ const readData = [
 
 class ProductApi {
   static getProduct(id) {
-    const product = readData.find(p => p.id === Number(id));
+    const product = readData.find(p => p.id === id);
 
     return new Promise((resolve, reject) => {
       setTimeout(() => {

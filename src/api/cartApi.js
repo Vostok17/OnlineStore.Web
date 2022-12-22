@@ -1,6 +1,5 @@
 if (process.env.REACT_APP_API_TYPE === 'web') {
   module.exports = require('./prod/webCartApi');
 } else {
-  // module.exports = require('./dev/mockCartApi');
-  module.exports = require('./prod/webCartApi');
+  module.exports = require('./dev/mockCartApi');
 }
