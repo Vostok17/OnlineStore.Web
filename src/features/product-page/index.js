@@ -27,7 +27,7 @@ const ProductPage = () => {
   }, [dispatch, id]);
 
   const handleAddToCartClick = async () => {
-    const product = { id: data.id, title: data.title, imageLink: data.imageLink, price: data.price, quantity: 1 };
+    const product = { id: data.id, title: data.title, imageLink: data.imageLink, price: data.price, count: 1 };
     dispatch(addToShoppingCart(product));
   };
 

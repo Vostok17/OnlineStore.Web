@@ -3,7 +3,7 @@ const shoppingCartKey = 'shoppingCart';
 const storage = window.localStorage;
 
 class UserSessionService {
-  static setShoppingCart(shoppingCart) {
+  static saveShoppingCart(shoppingCart) {
     storage.setItem(shoppingCartKey, JSON.stringify(shoppingCart));
   }
 
