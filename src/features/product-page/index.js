@@ -3,10 +3,9 @@ import { Alert, Col, Container, Row } from 'react-bootstrap';
 import { FaCartPlus } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import ProductApi from '../../api/productApi';
 import LoadingAnimation from '../../common/components/loading-animation';
 import { addToShoppingCart } from '../shopping-cart-page/actions';
-import { loadProduct, loadProductFail, loadProductSuccess } from './actions';
+import { loadProduct } from './actions';
 import './product-page.css';
 
 const ProductPage = () => {
@@ -15,15 +14,7 @@ const ProductPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadProduct());
-    (async () => {
-      try {
-        const res = await ProductApi.getProduct(id);
-        dispatch(loadProductSuccess(res.data));
-      } catch (error) {
-        dispatch(loadProductFail());
-      }
-    })();
+    dispatch(loadProduct(id));
   }, [dispatch, id]);
 
   const handleAddToCartClick = async () => {

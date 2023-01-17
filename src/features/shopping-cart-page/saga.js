@@ -13,11 +13,11 @@ export function* watchCart() {
   yield takeEvery(actionsToWatch, saveCartToLocalStorage);
 }
 
-function* saveCartToLocalStorage() {
+export function* saveCartToLocalStorage() {
   const cartData = yield select(state => state.cart.data);
-  yield call(UserSessionService.saveShoppingCart, cartData);
+  yield call(UserSessionService.setShoppingCart, cartData);
 }
 
 export default function* () {
-  yield all([saveCartToLocalStorage()]);
+  yield all([watchCart()]);
 }
