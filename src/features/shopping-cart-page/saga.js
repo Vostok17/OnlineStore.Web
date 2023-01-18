@@ -1,4 +1,4 @@
-import { all, call, select, takeEvery } from '@redux-saga/core/effects';
+import { all, select, takeEvery } from '@redux-saga/core/effects';
 import UserSessionService from '../../common/services/userSessionService';
 import * as actionTypes from './actionTypes';
 
@@ -15,7 +15,7 @@ export function* watchCart() {
 
 export function* saveCartToLocalStorage() {
   const cartData = yield select(state => state.cart.data);
-  yield call(UserSessionService.setShoppingCart, cartData);
+  UserSessionService.setShoppingCart(cartData);
 }
 
 export default function* () {
