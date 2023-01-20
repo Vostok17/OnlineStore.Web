@@ -1,10 +1,10 @@
-import { all, call, put, takeEvery } from '@redux-saga/core/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import ProductApi from './../../api/productApi';
 import { loadProductFail, loadProductSuccess } from './actions';
 import { LOAD_PRODUCT_DETAILS } from './actionTypes';
 
 export function* watchProductDetails() {
-  yield takeEvery(LOAD_PRODUCT_DETAILS, fetchProductDetails);
+  yield takeLatest(LOAD_PRODUCT_DETAILS, fetchProductDetails);
 }
 
 export function* fetchProductDetails(action) {
