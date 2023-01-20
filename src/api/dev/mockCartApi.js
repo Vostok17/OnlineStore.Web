@@ -10,6 +10,14 @@ class CartApi {
       }, delay);
     });
   }
+
+  static checkout() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, delay);
+    });
+  }
 }
 
 export default CartApi;

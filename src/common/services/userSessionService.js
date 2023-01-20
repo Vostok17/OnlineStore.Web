@@ -9,7 +9,7 @@ class UserSessionService {
 
   static getShoppingCart() {
     const data = storage.getItem(shoppingCartKey);
-    return JSON.parse(data);
+    return data ? JSON.parse(data) : [];
   }
 }
 

@@ -9,7 +9,6 @@ class CartApi {
   }
 
   static checkout(data) {
-    console.log(data);
     const url = serviceUrl;
     return axios.post(url, data);
   }
